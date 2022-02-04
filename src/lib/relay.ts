@@ -1,14 +1,22 @@
 import { useMemo } from "react";
 import { Environment, Network, RecordSource, Store } from "relay-runtime";
 import { RecordMap } from "relay-runtime/lib/store/RelayStoreTypes";
+import { RequestParameters } from "relay-runtime/lib/util/RelayConcreteNode";
+import {
+  CacheConfig,
+  Variables,
+} from "relay-runtime/lib/util/RelayRuntimeTypes";
+import { UploadableMap } from "relay-runtime/lib/network/RelayNetworkTypes";
 
 let relayEnvironment: Environment;
 
 async function fetchQuery(
-  operation: any,
-  variables: any,
-  cacheConfig: any,
-  uploadables: any
+  request: RequestParameters,
+  variables: Variables,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  cacheConfig: CacheConfig,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  uploadables?: UploadableMap | null
 ) {
   const endpoint = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT;
   if (!endpoint) {
@@ -22,9 +30,9 @@ async function fetchQuery(
       Accept: "application/json",
       "Content-Type": "application/json",
       "Sec-Fetch-Site": "cross-site",
-    }, // Add authentication and other headers here
+    },
     body: JSON.stringify({
-      query: operation.text, // GraphQL text from input
+      query: request.text,
       variables,
     }),
   });

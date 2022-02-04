@@ -4,8 +4,9 @@ const relay = require("./relay.config");
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    concurrentFeatures: false,
+    outputStandalone: true,
     // serverComponents: true,
+    concurrentFeatures: false,
     relay,
   },
 };

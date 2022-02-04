@@ -1,0 +1,47 @@
+name: Verify App
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn install --frozen-lockfile
+      - name: Prettier
+        run: yarn fmt:check
+      - name: Relay Validation
+        run: yarn relay:validate
+      - name: ESLint
+        run: yarn lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Check standalone
+        run: test -f .next/standalone/package.json
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: actions/setup-node@v2.5.1
+        with:
+          node-version: "16"
+          cache: "yarn"
+      - run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn test:ci

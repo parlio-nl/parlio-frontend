@@ -1,0 +1,17 @@
+# Ignore everything
+*
+
+# Dependency management
+!package.json
+!yarn.lock
+
+# Build configuration
+!next.config.js
+!relay.config.js
+!tsconfig.json
+!next-env.d.ts
+
+# Code and assets
+!src/
+!public/
+!data/schema.graphql

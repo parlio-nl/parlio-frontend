@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`/index matches snapshot 1`] = `
+<div>
+  <div>
+    <main>
+      <p>
+        Test Tex
+      </p>
+    </main>
+    <footer
+      data-testid="home-footer"
+    >
+      <p>
+        Footer Text
+      </p>
+    </footer>
+  </div>
+</div>
+`;
