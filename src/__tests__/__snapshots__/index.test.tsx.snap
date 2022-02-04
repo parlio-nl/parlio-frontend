@@ -5,7 +5,7 @@ exports[`/index matches snapshot 1`] = `
   <div>
     <main>
       <p>
-        Test Tex
+        Test Text
       </p>
     </main>
     <footer
