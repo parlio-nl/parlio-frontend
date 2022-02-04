@@ -1,0 +1,21 @@
+{
+  "extends": ["next/core-web-vitals", "eslint:recommended"],
+  "overrides": [
+    {
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:jest/all",
+        "plugin:jest-dom/all",
+        "plugin:testing-library/react"
+      ]
+    },
+    {
+      "files": ["**/*.ts?(x)"],
+      "extends": ["plugin:@typescript-eslint/recommended"]
+    }
+  ],
+  "ignorePatterns": ["/node_modules/", "/.next/"]
+}

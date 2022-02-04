@@ -1,0 +1,46 @@
+{
+  "name": "parlio-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --dir .",
+    "c": "yarn fmt:check && yarn relay:validate && yarn lint && yarn test",
+    "relay": "relay-compiler",
+    "relay:watch": "relay-compiler --watch",
+    "relay:validate": "relay-compiler --validate",
+    "fmt": "yarn prettier --write .",
+    "fmt:check": "yarn prettier --check .",
+    "fmt:ci": "yarn prettier --check --loglevel debug .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:ci": "jest --ci"
+  },
+  "dependencies": {
+    "graphql": "16.3.0",
+    "next": "12.0.11-canary.4",
+    "react": "beta",
+    "react-dom": "beta",
+    "react-relay": "13.0.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.16.2",
+    "@testing-library/react": "13.0.0-alpha.5",
+    "@types/node": "17.0.14",
+    "@types/react": "17.0.39",
+    "@types/react-relay": "13.0.1",
+    "@types/relay-runtime": "13.0.1",
+    "@typescript-eslint/eslint-plugin": "5.10.2",
+    "@typescript-eslint/parser": "5.10.2",
+    "eslint": "8.8.0",
+    "eslint-config-next": "12.0.10",
+    "eslint-plugin-jest": "26.0.0",
+    "eslint-plugin-jest-dom": "4.0.1",
+    "eslint-plugin-testing-library": "5.0.5",
+    "jest": "27.4.7",
+    "prettier": "2.5.1",
+    "relay-compiler": "13.0.2",
+    "typescript": "4.5.5"
+  }
+}
