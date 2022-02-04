@@ -10,7 +10,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <p>Test Tex</p>
+        <p>Test Text</p>
       </main>
       <footer data-testid={"home-footer"}>
         <p>Footer Text</p>
