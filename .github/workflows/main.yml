@@ -5,6 +5,9 @@ on:
       - main
   pull_request:
 
+env:
+  NEXT_TELEMETRY_DISABLED: 1
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
           cache: "yarn"
       - run: yarn install --frozen-lockfile
       - name: Prettier
-        run: yarn fmt:check
+        run: yarn fmt:ci
       - name: Relay Validation
         run: yarn relay:validate
       - name: ESLint
