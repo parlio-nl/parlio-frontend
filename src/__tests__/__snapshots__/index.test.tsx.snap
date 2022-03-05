@@ -7,6 +7,11 @@ exports[`/index matches snapshot 1`] = `
       <p>
         Test Text
       </p>
+      <button
+        class="btn btn-primary"
+      >
+        Test knop
+      </button>
     </main>
     <footer
       data-testid="home-footer"

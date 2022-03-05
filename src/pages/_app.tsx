@@ -3,10 +3,10 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEnvironment } from "../lib/relay";
 import { RelayEnvironmentProvider } from "react-relay";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import Layout from "../components/Layout";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     import("bootstrap");
   }, []);
@@ -20,5 +20,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </RelayEnvironmentProvider>
   );
 }
-
-export default MyApp;
