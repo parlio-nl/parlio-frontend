@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<35d9791f0e035a0e21ecd81801506931>>
+ * @generated SignedSource<<44850130db032d022bb2aa1c131fa262>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -111,6 +111,13 @@ return {
                     "alias": null,
                     "args": null,
                     "kind": "ScalarField",
+                    "name": "displayName",
+                    "storageKey": null
+                  },
+                  {
+                    "alias": null,
+                    "args": null,
+                    "kind": "ScalarField",
                     "name": "firstName",
                     "storageKey": null
                   },
@@ -181,12 +188,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d5dca4cb89e9506dad8f0e650f58f12b",
+    "cacheID": "d9d74fc90adf8a39cada38bfc0b378c0",
     "id": null,
     "metadata": {},
     "name": "peoplePageQuery",
     "operationKind": "query",
-    "text": "query peoplePageQuery(\n  $count: Int!\n  $cursor: String\n) {\n  ...PersonList_query\n}\n\nfragment PersonListItem_test on Person {\n  id\n  firstName\n  familyName\n  slug\n}\n\nfragment PersonList_query on Query {\n  people(first: $count, after: $cursor) {\n    edges {\n      cursor\n      node {\n        ...PersonListItem_test\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
+    "text": "query peoplePageQuery(\n  $count: Int!\n  $cursor: String\n) {\n  ...PersonList_query\n}\n\nfragment PersonListItem_test on Person {\n  id\n  displayName\n  firstName\n  familyName\n  slug\n}\n\nfragment PersonList_query on Query {\n  people(first: $count, after: $cursor) {\n    edges {\n      cursor\n      node {\n        ...PersonListItem_test\n        id\n        __typename\n      }\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n}\n"
   }
 };
 })();

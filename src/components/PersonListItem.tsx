@@ -11,6 +11,7 @@ export default function PersonListItem(props: Props) {
     graphql`
       fragment PersonListItem_test on Person {
         id
+        displayName
         firstName
         familyName
         slug
@@ -23,9 +24,7 @@ export default function PersonListItem(props: Props) {
     <div className="col">
       <div className="card h-100">
         <div className="card-body">
-          <h5 className="card-title">
-            {person.firstName} {person.familyName}
-          </h5>
+          <h5 className="card-title">{person.displayName}</h5>
           <Link href={`/person/${encodeURIComponent(person.slug)}`}>
             <a className={"link link-secondary pe-auto"}>
               <small>Profielpagina</small>

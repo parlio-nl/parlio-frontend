@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<0c09e8e21e3a5bc848a9a0325063cd9a>>
+ * @generated SignedSource<<0665a90ab1a753ac2f463e93ce49722d>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -14,9 +14,10 @@ export type PersonBySlugPageQuery$variables = {
 };
 export type PersonBySlugPageQuery$data = {
   readonly person: {
-    readonly firstName: string;
-    readonly familyName: string;
-    readonly nameInitials: string;
+    readonly displayName: string;
+    readonly firstName: string | null;
+    readonly familyName: string | null;
+    readonly nameInitials: string | null;
   };
 };
 export type PersonBySlugPageQuery = {
@@ -43,17 +44,24 @@ v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "firstName",
+  "name": "displayName",
   "storageKey": null
 },
 v3 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
-  "name": "familyName",
+  "name": "firstName",
   "storageKey": null
 },
 v4 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "familyName",
+  "storageKey": null
+},
+v5 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
@@ -81,10 +89,11 @@ return {
               "kind": "RequiredField",
               "field": (v2/*: any*/),
               "action": "THROW",
-              "path": "person.firstName"
+              "path": "person.displayName"
             },
             (v3/*: any*/),
-            (v4/*: any*/)
+            (v4/*: any*/),
+            (v5/*: any*/)
           ],
           "storageKey": null
         },
@@ -112,6 +121,7 @@ return {
           (v2/*: any*/),
           (v3/*: any*/),
           (v4/*: any*/),
+          (v5/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -125,16 +135,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "81b80010379fff0d2193ebb17cb439a1",
+    "cacheID": "3447d4655d8e0173bd48bf835931a8e6",
     "id": null,
     "metadata": {},
     "name": "PersonBySlugPageQuery",
     "operationKind": "query",
-    "text": "query PersonBySlugPageQuery(\n  $personSlug: String!\n) {\n  person(slug: $personSlug) {\n    firstName\n    familyName\n    nameInitials\n    id\n  }\n}\n"
+    "text": "query PersonBySlugPageQuery(\n  $personSlug: String!\n) {\n  person(slug: $personSlug) {\n    displayName\n    firstName\n    familyName\n    nameInitials\n    id\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "b8a065412c864a12098164b7037d80d5";
+(node as any).hash = "5b686de5197f26768c62901696378ef8";
 
 export default node;

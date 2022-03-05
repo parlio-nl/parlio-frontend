@@ -281,9 +281,10 @@ type PageInfo {
 type Person implements Node {
   id: ID!
   slug: String!
-  firstName: String!
-  familyName: String!
-  nameInitials: String!
+  displayName: String
+  firstName: String
+  familyName: String
+  nameInitials: String
   changeHistory: [ChangeEvent!]!
   gifts(after: String, before: String, first: Int, last: Int): PersonGiftConnection!
   trips(after: String, before: String, first: Int, last: Int): PersonTripConnection!

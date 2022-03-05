@@ -25,7 +25,8 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
     graphql`
       query PersonBySlugPageQuery($personSlug: String!) {
         person(slug: $personSlug) @required(action: THROW) {
-          firstName @required(action: THROW)
+          displayName @required(action: THROW)
+          firstName
           familyName
           nameInitials
         }
@@ -49,9 +50,7 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
             active: false,
           },
           {
-            text:
-              person.firstName +
-              (person.familyName ? ` ${person.familyName}` : ""),
+            text: person.displayName,
             href: `/person/${encodeURIComponent(slug)}`,
             active: true,
           },
@@ -59,6 +58,9 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
       />
       <Suspense fallback={"Loading..."}>
         <ul>
+          <li>
+            <strong>Volledige naam:</strong> {person.displayName}
+          </li>
           <li>
             <strong>Voornaam:</strong> {person.firstName ?? ""}
           </li>
