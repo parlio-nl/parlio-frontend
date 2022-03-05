@@ -3,3 +3,4 @@
 /.idea/
 
 /**/__generated__/
+/data/schema.graphql
