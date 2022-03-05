@@ -3,10 +3,12 @@ const relay = require("./relay.config");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  relay,
+  compiler: {
+    relay,
+  },
   swcMinify: true,
   experimental: {
-    outputStandalone: true,
+    outputStandalone: false,
     // serverComponents: true,
     concurrentFeatures: false,
   },
