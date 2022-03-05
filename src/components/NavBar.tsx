@@ -57,6 +57,18 @@ export default function NavBar(): JSX.Element {
               </Link>
             </li>
             <li className="nav-item">
+              <Link href={"/people"}>
+                <a
+                  className={
+                    "nav-link" + (router.route === "/people" ? " active" : "")
+                  }
+                  aria-current="page"
+                >
+                  Personen
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="#">
                 Link
               </a>
