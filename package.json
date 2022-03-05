@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --dir .",
-    "c": "yarn fmt:check && yarn relay:validate && yarn lint && yarn test",
+    "c": "yarn fmt:check && yarn relay:validate && yarn lint && yarn tsc --noEmit && yarn test",
     "relay": "relay-compiler",
     "relay:watch": "relay-compiler --watch",
     "relay:validate": "relay-compiler --validate",
