@@ -1,7 +1,6 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 
-const Home: NextPage = () => {
+export default function Home(): JSX.Element {
   return (
     <div>
       <Head>
@@ -20,6 +19,4 @@ const Home: NextPage = () => {
       </footer>
     </div>
   );
-};
-
-export default Home;
+}
