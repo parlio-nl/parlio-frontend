@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<df5eae822f4a5499fe3553ebf6c8fa92>>
+ * @generated SignedSource<<7a0005393eada33c8485060e099192f7>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -10,13 +10,11 @@
 
 import { ConcreteRequest, Query } from 'relay-runtime';
 export type TestComponentQuery$variables = {};
-export type TestComponentQueryVariables = TestComponentQuery$variables;
 export type TestComponentQuery$data = {
   readonly test: string;
 };
-export type TestComponentQueryResponse = TestComponentQuery$data;
 export type TestComponentQuery = {
-  variables: TestComponentQueryVariables;
+  variables: TestComponentQuery$variables;
   response: TestComponentQuery$data;
 };
 
