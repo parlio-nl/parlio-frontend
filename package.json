@@ -1,6 +1,11 @@
 {
   "name": "parlio-frontend",
+  "license": "SEE LICENSE IN LICENSE",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parlio-nl/parlio-frontend.git"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
