@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import { useEnvironment } from "../lib/relay";
 import { RelayEnvironmentProvider } from "react-relay";
 import { Suspense, useEffect } from "react";
+import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -13,9 +14,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   const environment = useEnvironment(pageProps.initialRecords);
   return (
     <RelayEnvironmentProvider environment={environment}>
-      <Suspense fallback={"Loading..."}>
+      <Layout>
         <Component {...pageProps} />
-      </Suspense>
+      </Layout>
     </RelayEnvironmentProvider>
   );
 }
