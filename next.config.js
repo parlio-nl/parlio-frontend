@@ -4,6 +4,7 @@ const relay = require("./relay.config");
 const nextConfig = {
   reactStrictMode: true,
   relay,
+  swcMinify: true,
   experimental: {
     outputStandalone: true,
     // serverComponents: true,
