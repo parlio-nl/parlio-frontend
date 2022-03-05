@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { graphql, useLazyLoadQuery } from "react-relay";
 import { Suspense } from "react";
 import { PersonBySlugPageQuery } from "../../__generated__/PersonBySlugPageQuery.graphql";
+import Breadcrumb from "../../components/Breadcrumb";
 
 type QueryProps = {
   personBySlug: string;
@@ -23,8 +24,8 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
   const { person } = useLazyLoadQuery<PersonBySlugPageQuery>(
     graphql`
       query PersonBySlugPageQuery($personSlug: String!) {
-        person(slug: $personSlug) {
-          firstName
+        person(slug: $personSlug) @required(action: THROW) {
+          firstName @required(action: THROW)
           familyName
           nameInitials
         }
@@ -34,18 +35,41 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
   );
 
   return (
-    <Suspense fallback={"Loading..."}>
-      <ul>
-        <li>
-          <strong>Voornaam:</strong> {person?.firstName ?? ""}
-        </li>
-        <li>
-          <strong>Achternaam:</strong> {person?.familyName ?? ""}
-        </li>
-        <li>
-          <strong>Initialen:</strong> {person?.nameInitials ?? ""}
-        </li>
-      </ul>
-    </Suspense>
+    <>
+      <Breadcrumb
+        crumbs={[
+          {
+            text: "Home",
+            href: "/",
+            active: false,
+          },
+          {
+            text: "Personen",
+            href: "/people",
+            active: false,
+          },
+          {
+            text:
+              person.firstName +
+              (person.familyName ? ` ${person.familyName}` : ""),
+            href: `/person/${encodeURIComponent(slug)}`,
+            active: true,
+          },
+        ]}
+      />
+      <Suspense fallback={"Loading..."}>
+        <ul>
+          <li>
+            <strong>Voornaam:</strong> {person.firstName ?? ""}
+          </li>
+          <li>
+            <strong>Achternaam:</strong> {person.familyName ?? ""}
+          </li>
+          <li>
+            <strong>Initialen:</strong> {person.nameInitials ?? ""}
+          </li>
+        </ul>
+      </Suspense>
+    </>
   );
 }

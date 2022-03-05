@@ -2,6 +2,7 @@ import PersonList from "../components/PersonList";
 import { graphql, useLazyLoadQuery } from "react-relay";
 import { Suspense } from "react";
 import { peoplePageQuery } from "../__generated__/peoplePageQuery.graphql";
+import Breadcrumb from "../components/Breadcrumb";
 
 export default function People(): JSX.Element {
   const data = useLazyLoadQuery<peoplePageQuery>(
@@ -14,8 +15,22 @@ export default function People(): JSX.Element {
   );
 
   return (
-    <Suspense fallback={"Loading..."}>
-      <PersonList query={data} />
-    </Suspense>
+    <>
+      <Breadcrumb
+        crumbs={[
+          {
+            text: "Home",
+            href: "/",
+            active: false,
+          },
+          {
+            text: "Personen",
+          },
+        ]}
+      />
+      <Suspense fallback={"Loading..."}>
+        <PersonList query={data} />
+      </Suspense>
+    </>
   );
 }

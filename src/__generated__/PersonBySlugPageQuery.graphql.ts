@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<72016e5bbbcf86174307307105552d89>>
+ * @generated SignedSource<<0c09e8e21e3a5bc848a9a0325063cd9a>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -17,7 +17,7 @@ export type PersonBySlugPageQuery$data = {
     readonly firstName: string;
     readonly familyName: string;
     readonly nameInitials: string;
-  } | null;
+  };
 };
 export type PersonBySlugPageQuery = {
   variables: PersonBySlugPageQuery$variables;
@@ -68,18 +68,28 @@ return {
     "name": "PersonBySlugPageQuery",
     "selections": [
       {
-        "alias": null,
-        "args": (v1/*: any*/),
-        "concreteType": "Person",
-        "kind": "LinkedField",
-        "name": "person",
-        "plural": false,
-        "selections": [
-          (v2/*: any*/),
-          (v3/*: any*/),
-          (v4/*: any*/)
-        ],
-        "storageKey": null
+        "kind": "RequiredField",
+        "field": {
+          "alias": null,
+          "args": (v1/*: any*/),
+          "concreteType": "Person",
+          "kind": "LinkedField",
+          "name": "person",
+          "plural": false,
+          "selections": [
+            {
+              "kind": "RequiredField",
+              "field": (v2/*: any*/),
+              "action": "THROW",
+              "path": "person.firstName"
+            },
+            (v3/*: any*/),
+            (v4/*: any*/)
+          ],
+          "storageKey": null
+        },
+        "action": "THROW",
+        "path": "person"
       }
     ],
     "type": "Query",
@@ -125,6 +135,6 @@ return {
 };
 })();
 
-(node as any).hash = "350db427cde7f6626e5ddf039726a9b4";
+(node as any).hash = "b8a065412c864a12098164b7037d80d5";
 
 export default node;

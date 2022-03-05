@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`breadcrumb matches snapshot 1`] = `
+<div>
+  <nav
+    aria-label="breadcrumb"
+    data-testid="breadcrumb-nav"
+  >
+    <ol
+      class="breadcrumb"
+    >
+      <li
+        class="breadcrumb-item"
+      >
+        <a
+          href="/a"
+        >
+          a
+        </a>
+      </li>
+      <li
+        class="breadcrumb-item"
+      >
+        <a
+          href="/b"
+        >
+          b
+        </a>
+      </li>
+      <li
+        aria-current="page"
+        class="breadcrumb-item active"
+      >
+        c
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
