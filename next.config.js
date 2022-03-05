@@ -8,7 +8,7 @@ const nextConfig = {
   },
   swcMinify: true,
   experimental: {
-    outputStandalone: false,
+    outputStandalone: true,
     // serverComponents: true,
     concurrentFeatures: false,
   },
