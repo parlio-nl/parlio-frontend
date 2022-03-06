@@ -1,0 +1,7 @@
+.footer li:after {
+  content: "\2022";
+}
+
+.footer li:last-child:after {
+  content: "";
+}
