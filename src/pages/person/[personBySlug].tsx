@@ -43,6 +43,7 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
             text: "Home",
             href: "/",
             active: false,
+            icon: "bi-house-door-fill",
           },
           {
             text: "Personen",

@@ -37,3 +37,37 @@ exports[`breadcrumb matches snapshot 1`] = `
   </nav>
 </div>
 `;
+
+exports[`breadcrumb renders icons 1`] = `
+Array [
+  <li
+    aria-current="page"
+    class="breadcrumb-item active"
+  >
+    <i
+      class="bi a"
+    />
+     
+    a
+  </li>,
+  <li
+    class="breadcrumb-item"
+  >
+    <i
+      class="bi b"
+    />
+     
+    <a
+      href="/b"
+    >
+      b
+    </a>
+  </li>,
+  <li
+    aria-current="page"
+    class="breadcrumb-item active"
+  >
+    c
+  </li>,
+]
+`;

@@ -2,24 +2,75 @@
 
 exports[`/index matches snapshot 1`] = `
 <div>
-  <div>
-    <main>
-      <p>
-        Test Text
-      </p>
-      <button
-        class="btn btn-primary"
-      >
-        Test knop
-      </button>
-    </main>
-    <footer
-      data-testid="home-footer"
+  <nav
+    aria-label="breadcrumb"
+    data-testid="breadcrumb-nav"
+  >
+    <ol
+      class="breadcrumb"
     >
-      <p>
-        Footer Text
-      </p>
-    </footer>
+      <li
+        class="breadcrumb-item"
+      >
+        <i
+          class="bi bi-house-door-fill"
+        />
+         
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+    </ol>
+  </nav>
+  <p>
+    Test Text
+  </p>
+  <div
+    class="position-fixed bottom-0 end-0 p-3"
+    style="z-index: 11;"
+  >
+    <div
+      aria-atomic="true"
+      aria-live="assertive"
+      class="toast show"
+      id="liveToast"
+      role="alert"
+    >
+      <div
+        class="toast-header bg-danger text-white"
+      >
+        <strong
+          class="me-auto"
+        >
+          Foutmelding
+        </strong>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          type="button"
+        />
+      </div>
+      <div
+        class="toast-body"
+      >
+        Home pagina foutmelding tesst
+      </div>
+    </div>
   </div>
+  <button
+    class="btn btn-primary"
+  >
+    Test knop
+  </button>
+  <footer
+    data-testid="home-footer"
+  >
+    <p>
+      Footer Text
+    </p>
+  </footer>
 </div>
 `;

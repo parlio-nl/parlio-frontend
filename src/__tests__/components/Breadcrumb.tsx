@@ -225,6 +225,49 @@ describe("breadcrumb", () => {
     });
   }
 
+  it("renders icons", () => {
+    expect.assertions(5);
+
+    render(
+      <Breadcrumb
+        crumbs={[
+          {
+            text: "a",
+            href: "/a", // Not included because active!
+            active: true,
+            icon: "a",
+          },
+          {
+            text: "b",
+            href: "/b",
+            icon: "b",
+            active: false,
+          },
+          {
+            text: "c",
+            href: "/c",
+            active: true,
+          },
+        ]}
+      />
+    );
+
+    const breadcrumb = screen.getByTestId("breadcrumb-nav");
+
+    expect(breadcrumb).toBeInTheDocument();
+    expect(breadcrumb).toHaveTextContent("a bc"); // Space before `a` is trimmed
+
+    const breadcrumbList = within(breadcrumb).getByRole("list");
+
+    expect(breadcrumbList).toBeInTheDocument();
+
+    const breadCrumbs = within(breadcrumbList).getAllByRole("listitem");
+
+    expect(breadCrumbs).toHaveLength(3);
+
+    expect(breadCrumbs).toMatchSnapshot();
+  });
+
   it("matches snapshot", () => {
     expect.assertions(1);
 

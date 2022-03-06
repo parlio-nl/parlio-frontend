@@ -6,12 +6,14 @@ type InactiveCrumb = {
   text: string;
   href: string;
   active: false;
+  icon?: string;
 };
 
 type ActiveCrumb = {
   text: string;
   href?: string;
   active?: true;
+  icon?: string;
 };
 
 type Props = {
@@ -35,6 +37,11 @@ export default function Breadcrumb(props: Props): JSX.Element | null {
               className={`breadcrumb-item${isActive ? " active" : ""}`}
               aria-current={isActive ? "page" : undefined}
             >
+              {crumb.icon ? (
+                <>
+                  <i className={`bi ${crumb.icon}`} />{" "}
+                </>
+              ) : undefined}
               {isActive ||
               crumb.href ===
                 undefined /* WebStorm doesn't catch this in `isActive` */ ? (
