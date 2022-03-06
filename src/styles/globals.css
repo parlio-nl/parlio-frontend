@@ -15,14 +15,17 @@ a {
   box-sizing: border-box;
 }
 
+body,
+html,
 #__next {
   height: 100%;
 }
 
-body {
-  height: 100%;
+body,
+#__next {
+  min-height: 100vh;
 }
 
-html {
-  height: 100%;
+body {
+  background-color: var(--bs-light);
 }

@@ -7,7 +7,7 @@ import parlioLogoPng from "/public/favicon.png";
 export default function NavBar(): JSX.Element {
   const router = useRouter();
   return (
-    <nav className="navbar navbar-expand-lg px-4 py-0 flex-grow-1 navbar-light">
+    <nav className="navbar navbar-expand-md px-4 py-0 flex-grow-1 navbar-light">
       <div className="container-fluid px-0">
         <Link href={"/"}>
           <a className="navbar-brand d-flex flex-row align-items-start justify-content-start">
@@ -19,12 +19,9 @@ export default function NavBar(): JSX.Element {
                 }
                 width={32}
                 height={32}
-                placeholder={"blur"}
+                placeholder={"empty"}
                 objectPosition={"center"}
                 objectFit={"contain"}
-                blurDataURL={
-                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsNAYAATsAtrqkgxAAAAAASUVORK5CYII="
-                }
                 className={"d-inline-block"}
                 priority={true}
               />
@@ -66,7 +63,7 @@ export default function NavBar(): JSX.Element {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item">
               <Link href={"/"}>
                 <a
