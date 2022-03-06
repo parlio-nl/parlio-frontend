@@ -1,7 +1,7 @@
 export default function Longpage(): JSX.Element {
   return (
     <>
-      {Array.from({ length: 20 }).map((_, i) => {
+      {Array.from({ length: 40 }).map((_, i) => {
         return (
           <p key={i}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet
