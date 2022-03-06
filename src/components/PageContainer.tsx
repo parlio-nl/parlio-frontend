@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+import Header from "./Header";
 
 export default function PageContainer({
   children,
 }: JSX.ElementChildrenAttribute): JSX.Element {
   return (
     <div className={"d-flex flex-column h-100"}>
-      <NavBar />
+      <Header />
       <div className={"m-sm-4 mb-4 flex-shrink-0"}>
         <div className={"container-fluid bg-light p-4"}>
           <Suspense fallback={""}>

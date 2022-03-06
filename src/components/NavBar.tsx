@@ -2,26 +2,49 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import parlioLogoSvg from "/public/parlio-logo.svg";
+import parlioLogoPng from "/public/favicon.png";
 
 export default function NavBar(): JSX.Element {
   const router = useRouter();
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg px-4 py-0 flex-grow-1 navbar-light">
+      <div className="container-fluid px-0">
         <Link href={"/"}>
-          <a className="navbar-brand d-flex justify-content-center">
-            <Image
-              src={parlioLogoSvg}
-              alt={"Parlementaire Informatie Online (Parlio) Logo"}
-              width={130}
-              height={32}
-              placeholder={"blur"}
-              blurDataURL={
-                "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsNAYAATsAtrqkgxAAAAAASUVORK5CYII="
-              }
-              className={"d-inline-block"}
-              priority={true}
-            />
+          <a className="navbar-brand d-flex flex-row align-items-start justify-content-start">
+            <span className={"d-sm-none d-flex"}>
+              <Image
+                src={parlioLogoPng}
+                alt={
+                  'Parlementaire Informatie Online (Parlio) Logo - "P" variant'
+                }
+                width={32}
+                height={32}
+                placeholder={"blur"}
+                objectPosition={"center"}
+                objectFit={"contain"}
+                blurDataURL={
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsNAYAATsAtrqkgxAAAAAASUVORK5CYII="
+                }
+                className={"d-inline-block"}
+                priority={true}
+              />
+            </span>
+            <span className={"d-none d-sm-flex"}>
+              <Image
+                src={parlioLogoSvg}
+                alt={"Parlementaire Informatie Online (Parlio) Logo"}
+                width={130}
+                height={32}
+                placeholder={"blur"}
+                objectPosition={"left"}
+                objectFit={"contain"}
+                blurDataURL={
+                  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsNAYAATsAtrqkgxAAAAAASUVORK5CYII="
+                }
+                className={"d-inline-block m-0 p-0"}
+                priority={true}
+              />
+            </span>
             <span
               className={
                 "text-secondary small ms-2 d-none d-lg-block align-self-center"
