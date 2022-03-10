@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Environment, Network, RecordSource, Store } from "relay-runtime";
+import { IEnvironment, Network, RecordSource, Store } from "relay-runtime";
 import { RecordMap } from "relay-runtime/lib/store/RelayStoreTypes";
 import { RequestParameters } from "relay-runtime/lib/util/RelayConcreteNode";
 import {
@@ -7,8 +7,9 @@ import {
   Variables,
 } from "relay-runtime/lib/util/RelayRuntimeTypes";
 import { UploadableMap } from "relay-runtime/lib/network/RelayNetworkTypes";
+import RelayModernEnvironment from "relay-runtime/lib/store/RelayModernEnvironment";
 
-let relayEnvironment: Environment;
+let relayEnvironment: IEnvironment;
 
 async function fetchQuery(
   request: RequestParameters,
@@ -40,15 +41,15 @@ async function fetchQuery(
   return response.json();
 }
 
-function createEnvironment(initialRecords?: RecordMap): Environment {
+function createEnvironment(initialRecords?: RecordMap): IEnvironment {
   // console.log((typeof window === 'undefined' ? '[SSR] ' : '') + 'Created environment')
-  return new Environment({
+  return new RelayModernEnvironment({
     network: Network.create(fetchQuery),
     store: new Store(new RecordSource(initialRecords)),
   });
 }
 
-export function initEnvironment(initialRecords?: RecordMap): Environment {
+export function initEnvironment(initialRecords?: RecordMap): IEnvironment {
   const environment = relayEnvironment ?? createEnvironment(initialRecords);
 
   if (initialRecords) {
@@ -68,6 +69,6 @@ export function initEnvironment(initialRecords?: RecordMap): Environment {
   return relayEnvironment;
 }
 
-export function useEnvironment(initialRecords?: RecordMap): Environment {
+export function useEnvironment(initialRecords?: RecordMap): IEnvironment {
   return useMemo(() => initEnvironment(initialRecords), [initialRecords]);
 }
