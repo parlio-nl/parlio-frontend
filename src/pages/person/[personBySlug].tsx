@@ -65,9 +65,9 @@ function PersonBySlugPageSafe(slug: string): JSX.Element {
           <li>
             <strong>Voornaam:</strong> {person.firstName ?? ""}
           </li>
-          <li>
-            <strong>Achternaam:</strong> {person.familyName ?? ""}
-          </li>
+          {/*<li>*/}
+          {/*  <strong>Achternaam:</strong> {person.familyName ?? ""}*/}
+          {/*</li>*/}
           <li>
             <strong>Initialen:</strong> {person.nameInitials ?? ""}
           </li>
