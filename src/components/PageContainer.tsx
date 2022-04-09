@@ -1,10 +1,12 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-export default function PageContainer({
-  children,
-}: JSX.ElementChildrenAttribute): JSX.Element {
+type Props = {
+  children: React.ReactNode;
+};
+
+export default function PageContainer({ children }: Props): JSX.Element {
   return (
     <div className={"d-flex flex-column vh-100"}>
       <div className={""}>
